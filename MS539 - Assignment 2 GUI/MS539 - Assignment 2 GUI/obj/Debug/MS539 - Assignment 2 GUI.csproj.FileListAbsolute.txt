@@ -1,0 +1,10 @@
+C:\Users\Esgar\source\repos\MS539 - Assignment 2 GUI\MS539 - Assignment 2 GUI\obj\Debug\MS539 - Assignment 2 GUI.csproj.AssemblyReference.cache
+C:\Users\Esgar\source\repos\MS539 - Assignment 2 GUI\MS539 - Assignment 2 GUI\obj\Debug\MS539___Assignment_2_GUI.Form1.resources
+C:\Users\Esgar\source\repos\MS539 - Assignment 2 GUI\MS539 - Assignment 2 GUI\obj\Debug\MS539___Assignment_2_GUI.Properties.Resources.resources
+C:\Users\Esgar\source\repos\MS539 - Assignment 2 GUI\MS539 - Assignment 2 GUI\obj\Debug\MS539 - Assignment 2 GUI.csproj.GenerateResource.cache
+C:\Users\Esgar\source\repos\MS539 - Assignment 2 GUI\MS539 - Assignment 2 GUI\obj\Debug\MS539 - Assignment 2 GUI.csproj.CoreCompileInputs.cache
+C:\Users\Esgar\source\repos\MS539 - Assignment 2 GUI\MS539 - Assignment 2 GUI\bin\Debug\MS539 - Assignment 2 GUI.exe.config
+C:\Users\Esgar\source\repos\MS539 - Assignment 2 GUI\MS539 - Assignment 2 GUI\bin\Debug\MS539 - Assignment 2 GUI.exe
+C:\Users\Esgar\source\repos\MS539 - Assignment 2 GUI\MS539 - Assignment 2 GUI\bin\Debug\MS539 - Assignment 2 GUI.pdb
+C:\Users\Esgar\source\repos\MS539 - Assignment 2 GUI\MS539 - Assignment 2 GUI\obj\Debug\MS539 - Assignment 2 GUI.exe
+C:\Users\Esgar\source\repos\MS539 - Assignment 2 GUI\MS539 - Assignment 2 GUI\obj\Debug\MS539 - Assignment 2 GUI.pdb
