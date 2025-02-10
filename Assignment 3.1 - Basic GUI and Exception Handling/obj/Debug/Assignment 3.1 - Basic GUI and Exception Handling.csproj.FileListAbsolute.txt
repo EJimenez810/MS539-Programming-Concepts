@@ -1,0 +1,13 @@
+C:\Users\Esgar\source\repos\Assignment 3.1 - Basic GUI and Exception Handling\bin\Debug\Assignment 3.1 - Basic GUI and Exception Handling.exe.config
+C:\Users\Esgar\source\repos\Assignment 3.1 - Basic GUI and Exception Handling\bin\Debug\Assignment 3.1 - Basic GUI and Exception Handling.exe
+C:\Users\Esgar\source\repos\Assignment 3.1 - Basic GUI and Exception Handling\bin\Debug\Assignment 3.1 - Basic GUI and Exception Handling.pdb
+C:\Users\Esgar\source\repos\Assignment 3.1 - Basic GUI and Exception Handling\obj\Debug\Assignment 3.1 - Basic GUI and Exception Handling.csproj.AssemblyReference.cache
+C:\Users\Esgar\source\repos\Assignment 3.1 - Basic GUI and Exception Handling\obj\Debug\Assignment_3._1___Basic_GUI_and_Exception_Handling.FHomePage.resources
+C:\Users\Esgar\source\repos\Assignment 3.1 - Basic GUI and Exception Handling\obj\Debug\Assignment_3._1___Basic_GUI_and_Exception_Handling.Properties.Resources.resources
+C:\Users\Esgar\source\repos\Assignment 3.1 - Basic GUI and Exception Handling\obj\Debug\Assignment 3.1 - Basic GUI and Exception Handling.csproj.GenerateResource.cache
+C:\Users\Esgar\source\repos\Assignment 3.1 - Basic GUI and Exception Handling\obj\Debug\Assignment 3.1 - Basic GUI and Exception Handling.csproj.CoreCompileInputs.cache
+C:\Users\Esgar\source\repos\Assignment 3.1 - Basic GUI and Exception Handling\obj\Debug\Assignment 3.1 - Basic GUI and Exception Handling.exe
+C:\Users\Esgar\source\repos\Assignment 3.1 - Basic GUI and Exception Handling\obj\Debug\Assignment 3.1 - Basic GUI and Exception Handling.pdb
+C:\Users\Esgar\source\repos\Assignment 3.1 - Basic GUI and Exception Handling\obj\Debug\Assignment_3._1___Basic_GUI_and_Exception_Handling.FBudgetStrategy.resources
+C:\Users\Esgar\source\repos\Assignment 3.1 - Basic GUI and Exception Handling\obj\Debug\Assignment_3._1___Basic_GUI_and_Exception_Handling.FDebtStrategy.resources
+C:\Users\Esgar\source\repos\Assignment 3.1 - Basic GUI and Exception Handling\obj\Debug\Assignment_3._1___Basic_GUI_and_Exception_Handling.FTakeHomePay.resources
