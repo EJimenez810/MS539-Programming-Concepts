@@ -14,15 +14,25 @@ namespace Assignment_3._1___Basic_GUI_and_Exception_Handling
     public partial class FBudgetStrategy : Form
     {
         private string userName;
+        private FHomePage homePageInstance;
 
-        public FBudgetStrategy(string userName)
+        public FBudgetStrategy(FHomePage homePage, string userName)
         {
             InitializeComponent();
-            this.userName = userName;
+
+            this.homePageInstance = homePage;
+
+            userName = userName;
+
 
             if (LabelBSW != null)
             {
                 LabelBSW.Text = $"Welcome, {userName}, to Budget Strategy! Let's set you up for Success!";
+            }
+
+            else
+            {
+                MessageBox.Show("Please submit your name on the home screen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -37,7 +47,7 @@ namespace Assignment_3._1___Basic_GUI_and_Exception_Handling
             }
             else
             {
-                MessageBox.Show("LabelBSW is null. Please check the initialization.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please submit your name on the home screen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void LabelBSW_Click(object sender, EventArgs e)
@@ -47,10 +57,16 @@ namespace Assignment_3._1___Basic_GUI_and_Exception_Handling
 
         private void BTNGoHome_Click(object sender, EventArgs e)
         {
-            FHomePage homePage = new FHomePage();
-            homePage.Show();
 
-            this.Close();
+            DialogResult result = MessageBox.Show("Are you sure you want to return to the Home Page?", "Confirm Navigation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+
+                this.Hide();
+                homePageInstance.Show();
+
+            }
         }
 
         private void FBudgetStrategy_Load_1(object sender, EventArgs e)

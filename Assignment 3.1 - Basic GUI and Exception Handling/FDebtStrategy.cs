@@ -13,10 +13,13 @@ namespace Assignment_3._1___Basic_GUI_and_Exception_Handling
     public partial class FDebtStrategy : Form
     {
         private string userName;
+        private FHomePage homePageInstance;
 
-        public FDebtStrategy(string userName)
+        public FDebtStrategy(FHomePage homePage, string userName)
         {
             InitializeComponent();
+
+            this.homePageInstance = homePage;
             this.userName = userName;
 
             if (LabelDSW != null)
@@ -42,10 +45,16 @@ namespace Assignment_3._1___Basic_GUI_and_Exception_Handling
 
         private void BTNGoHome_Click(object sender, EventArgs e)
         {
-            FHomePage homePage = new FHomePage();
-            homePage.Show();
 
-            this.Close();
+            DialogResult result = MessageBox.Show("Are you sure you want to return to the Home Page?", "Confirm Navigation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+
+                this.Hide();
+                homePageInstance.Show();
+
+            }
         }
     }
 }

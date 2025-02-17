@@ -86,8 +86,10 @@ namespace Assignment_3._1___Basic_GUI_and_Exception_Handling
                 return;
             }
 
-            FBudgetStrategy budgetStrategyForm = new FBudgetStrategy(userName);
+            FBudgetStrategy budgetStrategyForm = new FBudgetStrategy(this, userName);
             budgetStrategyForm.Show();
+
+            this.Hide();
         }
 
         private void BTNTakeHomeP_Click(object sender, EventArgs e)
@@ -97,8 +99,10 @@ namespace Assignment_3._1___Basic_GUI_and_Exception_Handling
                 MessageBox.Show("Please enter your name before continuing.", "Name Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            FTakeHomePay takeHomePayForm = new FTakeHomePay(userName);
+            FTakeHomePay takeHomePayForm = new FTakeHomePay(this, userName);
             takeHomePayForm.Show();
+
+            this.Hide();
         }
 
         private void BTNDebtStrategy_Click(object sender, EventArgs e)
@@ -108,8 +112,10 @@ namespace Assignment_3._1___Basic_GUI_and_Exception_Handling
                 MessageBox.Show("Please enter your name before continuing.", "Name Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            FDebtStrategy debtStrategyForm = new FDebtStrategy(userName);
+            FDebtStrategy debtStrategyForm = new FDebtStrategy(this, userName);
             debtStrategyForm.Show();
+
+            this.Hide();
         }
     }
 }

@@ -34,11 +34,12 @@
             // 
             // LabelBSW
             // 
+            this.LabelBSW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LabelBSW.Font = new System.Drawing.Font("Segoe Print", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelBSW.ForeColor = System.Drawing.Color.MediumSlateBlue;
             this.LabelBSW.Location = new System.Drawing.Point(13, 13);
             this.LabelBSW.Name = "LabelBSW";
-            this.LabelBSW.Size = new System.Drawing.Size(432, 48);
+            this.LabelBSW.Size = new System.Drawing.Size(141, 48);
             this.LabelBSW.TabIndex = 0;
             this.LabelBSW.Text = "Welcome!";
             this.LabelBSW.Click += new System.EventHandler(this.LabelBSW_Click);
