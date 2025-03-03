@@ -72,6 +72,11 @@
             this.LBLSState = new System.Windows.Forms.Label();
             this.LBLFilingStat = new System.Windows.Forms.Label();
             this.BTNCalcNetInc = new System.Windows.Forms.Button();
+            this.LBLStateTax = new System.Windows.Forms.Label();
+            this.LBLFedTax = new System.Windows.Forms.Label();
+            this.LBLTakeHomePay = new System.Windows.Forms.Label();
+            this.CBPayPeriod = new System.Windows.Forms.ComboBox();
+            this.LBLPayPeriod = new System.Windows.Forms.Label();
             this.GBPreTaxDed.SuspendLayout();
             this.GBPostTaxDed.SuspendLayout();
             this.SuspendLayout();
@@ -426,7 +431,7 @@
             // 
             this.CBStateIncTax.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBStateIncTax.FormattingEnabled = true;
-            this.CBStateIncTax.Location = new System.Drawing.Point(310, 76);
+            this.CBStateIncTax.Location = new System.Drawing.Point(310, 73);
             this.CBStateIncTax.Name = "CBStateIncTax";
             this.CBStateIncTax.Size = new System.Drawing.Size(121, 21);
             this.CBStateIncTax.Sorted = true;
@@ -435,7 +440,7 @@
             // CBFilingStat
             // 
             this.CBFilingStat.FormattingEnabled = true;
-            this.CBFilingStat.Location = new System.Drawing.Point(310, 128);
+            this.CBFilingStat.Location = new System.Drawing.Point(310, 151);
             this.CBFilingStat.Name = "CBFilingStat";
             this.CBFilingStat.Size = new System.Drawing.Size(121, 21);
             this.CBFilingStat.TabIndex = 7;
@@ -452,7 +457,7 @@
             // LBLFilingStat
             // 
             this.LBLFilingStat.AutoSize = true;
-            this.LBLFilingStat.Location = new System.Drawing.Point(310, 112);
+            this.LBLFilingStat.Location = new System.Drawing.Point(309, 135);
             this.LBLFilingStat.Name = "LBLFilingStat";
             this.LBLFilingStat.Size = new System.Drawing.Size(122, 13);
             this.LBLFilingStat.TabIndex = 9;
@@ -463,20 +468,71 @@
             this.BTNCalcNetInc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.BTNCalcNetInc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BTNCalcNetInc.Font = new System.Drawing.Font("Cambria Math", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNCalcNetInc.Location = new System.Drawing.Point(310, 296);
+            this.BTNCalcNetInc.Location = new System.Drawing.Point(310, 428);
             this.BTNCalcNetInc.Name = "BTNCalcNetInc";
             this.BTNCalcNetInc.Size = new System.Drawing.Size(200, 105);
             this.BTNCalcNetInc.TabIndex = 10;
             this.BTNCalcNetInc.Text = "Calculate Net Income";
             this.BTNCalcNetInc.UseVisualStyleBackColor = false;
+            this.BTNCalcNetInc.Click += new System.EventHandler(this.BTNCalcNetInc_Click);
+            // 
+            // LBLStateTax
+            // 
+            this.LBLStateTax.AutoSize = true;
+            this.LBLStateTax.Location = new System.Drawing.Point(313, 101);
+            this.LBLStateTax.Name = "LBLStateTax";
+            this.LBLStateTax.Size = new System.Drawing.Size(56, 13);
+            this.LBLStateTax.TabIndex = 11;
+            this.LBLStateTax.Text = "State Tax:";
+            // 
+            // LBLFedTax
+            // 
+            this.LBLFedTax.AutoSize = true;
+            this.LBLFedTax.Location = new System.Drawing.Point(310, 197);
+            this.LBLFedTax.Name = "LBLFedTax";
+            this.LBLFedTax.Size = new System.Drawing.Size(66, 13);
+            this.LBLFedTax.TabIndex = 12;
+            this.LBLFedTax.Text = "Federal Tax:";
+            // 
+            // LBLTakeHomePay
+            // 
+            this.LBLTakeHomePay.AutoSize = true;
+            this.LBLTakeHomePay.Location = new System.Drawing.Point(310, 329);
+            this.LBLTakeHomePay.Name = "LBLTakeHomePay";
+            this.LBLTakeHomePay.Size = new System.Drawing.Size(87, 13);
+            this.LBLTakeHomePay.TabIndex = 13;
+            this.LBLTakeHomePay.Text = "Take Home Pay:";
+            // 
+            // CBPayPeriod
+            // 
+            this.CBPayPeriod.FormattingEnabled = true;
+            this.CBPayPeriod.Location = new System.Drawing.Point(312, 253);
+            this.CBPayPeriod.Name = "CBPayPeriod";
+            this.CBPayPeriod.Size = new System.Drawing.Size(121, 21);
+            this.CBPayPeriod.TabIndex = 14;
+            // 
+            // LBLPayPeriod
+            // 
+            this.LBLPayPeriod.AutoSize = true;
+            this.LBLPayPeriod.Location = new System.Drawing.Point(309, 237);
+            this.LBLPayPeriod.Name = "LBLPayPeriod";
+            this.LBLPayPeriod.Size = new System.Drawing.Size(91, 13);
+            this.LBLPayPeriod.TabIndex = 15;
+            this.LBLPayPeriod.Text = "Select Pay Period";
             // 
             // FTakeHomePay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1234, 1061);
+            this.ClientSize = new System.Drawing.Size(1257, 1061);
+            this.Controls.Add(this.LBLPayPeriod);
+            this.Controls.Add(this.CBPayPeriod);
+            this.Controls.Add(this.LBLTakeHomePay);
+            this.Controls.Add(this.LBLFedTax);
+            this.Controls.Add(this.LBLStateTax);
             this.Controls.Add(this.BTNCalcNetInc);
             this.Controls.Add(this.LBLFilingStat);
             this.Controls.Add(this.LBLSState);
@@ -491,6 +547,8 @@
             this.DoubleBuffered = true;
             this.Name = "FTakeHomePay";
             this.Text = "FTakeHomePay";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FTakeHomePay_Load);
             this.GBPreTaxDed.ResumeLayout(false);
             this.GBPreTaxDed.PerformLayout();
             this.GBPostTaxDed.ResumeLayout(false);
@@ -545,5 +603,10 @@
         private System.Windows.Forms.Label LBLSState;
         private System.Windows.Forms.Label LBLFilingStat;
         private System.Windows.Forms.Button BTNCalcNetInc;
+        private System.Windows.Forms.Label LBLStateTax;
+        private System.Windows.Forms.Label LBLFedTax;
+        private System.Windows.Forms.Label LBLTakeHomePay;
+        private System.Windows.Forms.ComboBox CBPayPeriod;
+        private System.Windows.Forms.Label LBLPayPeriod;
     }
 }

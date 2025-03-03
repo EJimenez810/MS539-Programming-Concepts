@@ -21,11 +21,38 @@ namespace Assignment_3._1___Basic_GUI_and_Exception_Handling
         //Actual time to complete this code: 5 hours
         //Estimated time to complete this code: 3 to 5 hours
         //Actual time to complete this code: 5 1/2 hours
+        //Estimated time to complete this code: 4 to 6 hours
+        //Actual time to complete this code: 8 hours
 
-        //The following code defines the List for the Pre-Tax and Post-Tax Deduction Names
+        //The following code is to set up a Financial Calculator Parent Class and Encapsulates Gross Income & Taxable Income
+        public class FinanceCalculator
+        {
+            protected double grossIncome;
+            protected double taxableIncome;
 
-        private List<string> preTaxDeductions = new List<string> { "401K", "Medical", "Dental", "Vision", "HSAFSA", "Commuter" };
-        private List<string> postTaxDeductions = new List<string> { "ADnD", "CritILL", "ACCIns", "HosInd","SpsLife", "DepLife", "LTD", "Legal", "PSL" };
+            public FinanceCalculator(double grossIncome)
+            {
+                this.grossIncome = grossIncome;
+                this.taxableIncome = grossIncome;
+            }
+
+            //The following Method is to calculate the taxable income after pre-tax deductions
+            public void ApplyPreTaxDeductions(double preTaxDeductions)
+            {
+                taxableIncome -= preTaxDeductions;
+            }
+
+            //The following is the Getter for taxable income
+            public double GetTaxableIncome()
+            {
+                return taxableIncome;
+            }
+        }
+            //The following code defines the List for the Pre-Tax and Post-Tax Deduction Names
+
+            private List<string> preTaxDeductions = new List<string> { "401K", "Medical", "Dental", "Vision", "HSAFSA", "Commuter" };
+            private List<string> postTaxDeductions = new List<string> { "ADnD", "CritILL", "ACCIns", "HosInd","SpsLife", "DepLife", "LTD", "Legal", "PSL" };
+            private string payPeriod;
 
         public FTakeHomePay(FHomePage homePage, string userName)
         {
@@ -80,6 +107,167 @@ namespace Assignment_3._1___Basic_GUI_and_Exception_Handling
             {
                 MessageBox.Show("Please submit your name on the home screen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            // The following code ensures the combo boxes are clear before adding items
+
+            CBStateIncTax.Items.Clear();
+            CBFilingStat.Items.Clear();
+            CBPayPeriod.Items.Clear();
+
+            // The following code populates the CBStateIncTax with U.S. States
+
+            CBStateIncTax.Items.AddRange(new string[]
+            {
+               "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
+               "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
+               "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi",
+               "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
+               "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania",
+               "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont",
+               "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming", "District of Columbia"
+            });
+
+            // The following code sets default selection
+            
+            CBStateIncTax.SelectedIndex = 0;
+
+            // The following code populates CBFilingStat with filing statuses
+            
+            CBFilingStat.Items.AddRange(new string[] 
+            { 
+                "Single", "Married", "Head of Household" 
+            });
+
+            // The following sets default selection
+
+            CBFilingStat.SelectedIndex = 0;
+
+            // The following code populates CBPayPeriod with pay periods
+
+            CBPayPeriod.Items.AddRange(new string[]
+            {
+                "Weekly", "Bi-Weekly", "Monthly", "Semi-Monthly", "Annually"
+            });
+
+            // The following code sets default selection
+
+            CBPayPeriod.SelectedIndex = 0;
+        }
+
+        private void BTNCalcNetInc_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // The following code is to validate user inputs
+
+                if (string.IsNullOrWhiteSpace(TBGrossIncome.Text) ||
+                    CBStateIncTax.SelectedItem == null ||
+                    CBFilingStat.SelectedItem == null ||
+                    CBPayPeriod.SelectedItem == null)
+                {
+                    MessageBox.Show("Please enter Gross Income, select State, Filing Status, and Pay Period.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // The following code reads the inputs from the user
+
+                double grossIncome = double.Parse(TBGrossIncome.Text);
+                string selectedState = CBStateIncTax.SelectedItem.ToString();
+                string filingStatus = CBFilingStat.SelectedItem.ToString();
+                string payPeriod = CBPayPeriod.SelectedItem.ToString(); 
+
+                // The following code applies Pre-Tax Deductions
+
+                double preTaxDeductions = GetPreTaxDeductions();
+                FinanceCalculator financeCalculator = new FinanceCalculator(grossIncome);
+                
+                //financeCalculator.ApplyPreTaxDeductions(preTaxDeductions);
+                
+                double taxableIncome = financeCalculator.GetTaxableIncome();
+
+                // The following code calculates Federal and State Taxes
+
+                FederalTaxCalculator federalTaxCalculator = new FederalTaxCalculator(taxableIncome, filingStatus);
+                double federalTax = federalTaxCalculator.CalculateFederalIncomeTax();
+
+                StateTaxCalculator stateTaxCalculator = new StateTaxCalculator(taxableIncome, selectedState, filingStatus);
+                double stateTax = stateTaxCalculator.CalculateStateIncomeTax();
+
+                // The following code calculates Net Income or Final Take Home Pay
+
+                double takeHomePay = taxableIncome - federalTax - stateTax - GetPostTaxDeductions();
+
+                // The following adjusts the take-home pay based on pay period
+
+                double adjustedTakeHomePay = takeHomePay; // The default is annual
+                  switch (payPeriod)
+                  {
+                            case "Weekly":
+                                adjustedTakeHomePay /= 52;
+                                break;
+
+                            case "Bi-Weekly":
+                                adjustedTakeHomePay /= 26;
+                                break;
+
+                            case "Monthly":
+                                adjustedTakeHomePay /= 12;
+                                break;
+
+                            case "Semi-Monthly":
+                                adjustedTakeHomePay /= 24;
+                                break;
+                  }
+                      
+                
+
+
+                //The following code displays the results
+
+                LBLFedTax.Text = $"Federal Tax: ${federalTax:F2}";
+                LBLStateTax.Text = $"State Tax: ${stateTax:F2}";
+                LBLTakeHomePay.Text = $"Take Home Pay ({payPeriod}): ${adjustedTakeHomePay:F2}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error calculating taxes: " + ex.Message, "Calculation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // The following method calculates the pre-tax deductions
+
+        private double GetPreTaxDeductions()
+        {
+            double preTaxDeductions = 0;
+            foreach (Control ctrl in GBPreTaxDed.Controls)
+            {
+                if (ctrl is TextBox textBox && !string.IsNullOrEmpty(textBox.Text))
+                {
+                    if (double.TryParse(textBox.Text, out double value))
+                    {
+                        preTaxDeductions += value;
+                    }
+                }
+            }
+            return preTaxDeductions;
+        }
+
+        //The following method calculates the post-tax deductions
+
+        private double GetPostTaxDeductions()
+        {
+            double postTaxDeductions = 0;
+            foreach (Control ctrl in GBPostTaxDed.Controls)
+            {
+                if (ctrl is TextBox textBox && !string.IsNullOrEmpty(textBox.Text))
+                {
+                    if (double.TryParse(textBox.Text, out double value))
+                    {
+                        postTaxDeductions += value;
+                    }
+                }
+            }
+            return postTaxDeductions;
         }
 
         //The following code applises numeric-only validation to Gross Pay Textbox
